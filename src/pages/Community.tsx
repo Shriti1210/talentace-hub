@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { Users, Trophy, Target, Calendar, ArrowLeft, CheckCircle, Clock } from "lucide-react";
+import { Users, Trophy, Target, Calendar, ArrowLeft, CheckCircle, Clock, Plus, Send, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const challenges = [
@@ -64,6 +69,9 @@ const communityStats = [
 ];
 
 export default function Community() {
+  const [tipTitle, setTipTitle] = useState("");
+  const [tipContent, setTipContent] = useState("");
+  const [isSubmitDialogOpen, setIsSubmitDialogOpen] = useState(false);
   const { toast } = useToast();
 
   const handleJoinChallenge = (challengeTitle: string) => {
@@ -71,6 +79,26 @@ export default function Community() {
       title: "Challenge Joined!",
       description: `You've successfully joined the "${challengeTitle}" challenge. Good luck!`,
     });
+  };
+
+  const handleSubmitTip = () => {
+    if (!tipTitle.trim() || !tipContent.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please provide both a title and content for your tip.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Tip Submitted!",
+      description: "Your eco-tip has been shared with the community. Thank you for contributing!",
+    });
+
+    setTipTitle("");
+    setTipContent("");
+    setIsSubmitDialogOpen(false);
   };
 
   return (
@@ -195,36 +223,111 @@ export default function Community() {
       </div>
 
       {/* Community Tips */}
-      <Card className="eco-card mt-8">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Users className="h-5 w-5 text-primary" />
-            Community Tips
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
-              <p className="text-sm font-medium mb-1">💡 Pro Tip from Sarah G.</p>
-              <p className="text-sm text-muted-foreground">
-                "I use a reusable water bottle with time markers to track my hydration and avoid plastic bottles!"
-              </p>
+      <div className="grid gap-6 lg:grid-cols-2 mt-8">
+        <Card className="eco-card">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-primary" />
+                Community Tips
+              </CardTitle>
+              <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button size="sm" className="eco-gradient">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add Tip
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Share Your Eco Tip</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="tip-title">Tip Title</Label>
+                      <Input
+                        id="tip-title"
+                        placeholder="e.g., Water Saving Hack"
+                        value={tipTitle}
+                        onChange={(e) => setTipTitle(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="tip-content">Your Tip</Label>
+                      <Textarea
+                        id="tip-content"
+                        placeholder="Share your sustainable living tip with the community..."
+                        value={tipContent}
+                        onChange={(e) => setTipContent(e.target.value)}
+                        className="min-h-[100px]"
+                      />
+                    </div>
+                    <Button onClick={handleSubmitTip} className="w-full eco-gradient">
+                      <Send className="h-4 w-4 mr-2" />
+                      Share Tip
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
-            <div className="p-4 bg-success/5 rounded-lg border border-success/10">
-              <p className="text-sm font-medium mb-1">🚴 Tip from Mike E.</p>
-              <p className="text-sm text-muted-foreground">
-                "Plan your errands in one trip to reduce car usage and save time!"
-              </p>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
+                <p className="text-sm font-medium mb-1">💡 Pro Tip from Sarah G.</p>
+                <p className="text-sm text-muted-foreground">
+                  "I use a reusable water bottle with time markers to track my hydration and avoid plastic bottles!"
+                </p>
+              </div>
+              <div className="p-4 bg-success/5 rounded-lg border border-success/10">
+                <p className="text-sm font-medium mb-1">🚴 Tip from Mike E.</p>
+                <p className="text-sm text-muted-foreground">
+                  "Plan your errands in one trip to reduce car usage and save time!"
+                </p>
+              </div>
+              <div className="p-4 bg-warning/5 rounded-lg border border-warning/10">
+                <p className="text-sm font-medium mb-1">♻️ Tip from Emma L.</p>
+                <p className="text-sm text-muted-foreground">
+                  "Create a home composting system for food scraps - it's easier than you think!"
+                </p>
+              </div>
             </div>
-            <div className="p-4 bg-warning/5 rounded-lg border border-warning/10">
-              <p className="text-sm font-medium mb-1">♻️ Tip from Emma L.</p>
-              <p className="text-sm text-muted-foreground">
-                "Create a home composting system for food scraps - it's easier than you think!"
-              </p>
+          </CardContent>
+        </Card>
+        
+        {/* Your Contributions */}
+        <Card className="eco-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Trophy className="h-5 w-5 text-warning" />
+              Your Contributions
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="text-center py-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-medium mb-2">Share Your Knowledge</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Help others on their eco-journey by sharing your sustainable living tips.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">3</div>
+                    <p className="text-muted-foreground">Tips Shared</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-success">47</div>
+                    <p className="text-muted-foreground">Likes Received</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
