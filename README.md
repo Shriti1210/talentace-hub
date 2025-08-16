@@ -57,8 +57,6 @@ npm run dev
 
 🔗 GitHub Repo: GreenTrack on GitHub
 
-🌐 Live Demo (if deployed): Add link here
-
 👩‍💻 Author
 
 Shriti Yadav – B.Tech CSE (Medicaps University)
