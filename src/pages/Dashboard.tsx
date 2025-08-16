@@ -197,10 +197,12 @@ export default function Dashboard() {
                 Find Eco Locations
               </Button>
             </Link>
-            <Button variant="outline" className="w-full justify-start hover-lift">
-              <Users className="h-4 w-4 mr-2" />
-              Join Challenge
-            </Button>
+            <Link to="/dashboard/community">
+              <Button variant="outline" className="w-full justify-start hover-lift">
+                <Users className="h-4 w-4 mr-2" />
+                Join Challenge
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </div>

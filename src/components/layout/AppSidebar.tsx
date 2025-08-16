@@ -37,7 +37,7 @@ const items = [
   },
   {
     title: "Community",
-    url: "#",
+    url: "/dashboard/community",
     icon: Users,
   },
 ]

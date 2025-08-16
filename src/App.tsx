@@ -9,6 +9,7 @@ import Landing from "./pages/Landing";
 import ActivityLog from "./pages/ActivityLog";
 import Rewards from "./pages/Rewards";
 import EcoMap from "./pages/EcoMap";
+import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="activity-log" element={<ActivityLog />} />
             <Route path="rewards" element={<Rewards />} />
             <Route path="map" element={<EcoMap />} />
+            <Route path="community" element={<Community />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
