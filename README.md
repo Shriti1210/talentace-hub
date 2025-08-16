@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+🌱 GreenTrack – Sustainability Tracking App
 
-## Project info
+Track. Reduce. Reward. Your Green Journey Starts Here.
 
-**URL**: https://lovable.dev/projects/3e6625e0-09ca-432e-9f43-413a11992baf
+GreenTrack is an eco-conscious web app that helps users track their carbon & waste footprint, log daily eco-friendly activities, and earn rewards for sustainable behavior.
 
-## How can I edit this code?
+✨ Why GreenTrack?
 
-There are several ways of editing your application.
+📊 Track Your Impact – Monitor carbon footprint & waste reduction with visual charts
 
-**Use Lovable**
+💡 Daily Eco-Tips – Learn practical ways to live sustainably
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3e6625e0-09ca-432e-9f43-413a11992baf) and start prompting.
+🎖️ Earn Rewards – Collect eco-points, badges & climb leaderboards
 
-Changes made via Lovable will be committed automatically to this repo.
+🌍 Community Challenges – Join global efforts for a greener future
 
-**Use your preferred IDE**
+🗺️ Eco-Map – Discover nearby recycling centers, EV stations, and sustainable stores
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🖼️ Key Screens
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Landing Page: Mission statement + eco illustrations + CTA Start Tracking
 
-Follow these steps:
+Dashboard: Carbon chart, eco-tip, progress bar, activity log & challenges
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Log Activity Form: Dropdowns (Travel, Food, Plastic, Energy) + inputs
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Rewards Page: Badges, leaderboard, earned points
 
-# Step 3: Install the necessary dependencies.
-npm i
+Eco-Map: Google Maps–style sustainable locations
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
+⚡ Tech Stack
 - Vite
 - TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+ - React
+ - shadcn-ui
+ - Tailwind CSS
 
-## How can I deploy this project?
+Other: Smooth animations, responsive grid layout
 
-Simply open [Lovable](https://lovable.dev/projects/3e6625e0-09ca-432e-9f43-413a11992baf) and click on Share -> Publish.
+🚀 Getting Started
 
-## Can I connect a custom domain to my Lovable project?
+Clone the repo and run locally:
 
-Yes, you can!
+# Step 1: Clone the repository
+git clone https://github.com/Shriti1210/talentace-hub
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Step 2: Navigate into project
+cd talentace-hub
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Step 3: Install dependencies
+npm install
+
+# Step 4: Start dev server
+npm run dev
+
+📂 Project Links
+
+🔗 GitHub Repo: GreenTrack on GitHub
+
+🌐 Live Demo (if deployed): Add link here
+
+👩‍💻 Author
+
+Shriti Yadav – B.Tech CSE (Medicaps University)
+Passionate about AI, full-stack development, and building solutions for sustainability 🌍
