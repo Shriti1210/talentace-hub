@@ -18,10 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
-				sans: ['Inter', 'sans-serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -78,13 +74,11 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-subtle': 'var(--gradient-subtle)',
-				'gradient-earth': 'var(--gradient-earth)'
+				'gradient-subtle': 'var(--gradient-subtle)'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
-				'soft': 'var(--shadow-soft)',
-				'eco': 'var(--shadow-eco)'
+				'soft': 'var(--shadow-soft)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'

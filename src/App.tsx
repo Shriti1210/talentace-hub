@@ -5,11 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppLayout } from "./components/layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
-import Landing from "./pages/Landing";
-import ActivityLog from "./pages/ActivityLog";
-import Rewards from "./pages/Rewards";
-import EcoMap from "./pages/EcoMap";
-import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,13 +16,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/dashboard" element={<AppLayout />}>
+          <Route path="/" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="activity-log" element={<ActivityLog />} />
-            <Route path="rewards" element={<Rewards />} />
-            <Route path="map" element={<EcoMap />} />
-            <Route path="community" element={<Community />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
